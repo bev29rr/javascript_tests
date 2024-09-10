@@ -1,7 +1,6 @@
 function generateTower(height) {
     let layers = [];
     let prevLayers = 0;
-    console.log("k");
     for (let i=height; i >= 0; i--) {
         layers.unshift(createLayer(i, prevLayers));
         prevLayers += 1
@@ -11,24 +10,12 @@ function generateTower(height) {
 
 function createLayer(width, prevLayers) {
     let layer = "";
-    for (let i=0; i < prevLayers; i++) {
-        layer += " ";
-    }
-
-    for (let i=0; i < width; i++) {
-        layer += "#"
-    }
-
+    layer += " ".repeat(prevLayers);
+    layer += "#".repeat(width);
     layer += " ";
-
-    for (let i=0; i < width; i++) {
-        layer += "#"
-    }
-
-    for (let i=0; i < prevLayers; i++) {
-        layer += " ";
-    }
-    return layer
+    layer += "#".repeat(width);
+    layer += " ".repeat(prevLayers);
+    return layer;
 }
 
 let running = true
