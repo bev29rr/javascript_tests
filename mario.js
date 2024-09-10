@@ -9,12 +9,12 @@ function generateTower(height) {
 }
 
 function createLayer(width, prevLayers) {
-    let layer = "";
-    layer += " ".repeat(prevLayers);
-    layer += "#".repeat(width);
-    layer += " ";
-    layer += "#".repeat(width);
-    layer += " ".repeat(prevLayers);
+    let layer = ""
+        " ".repeat(prevLayers) +
+        "#".repeat(prevLayers) +
+        " " +
+        "#".repeat(prevLayers) +
+        ;
     return layer;
 }
 
