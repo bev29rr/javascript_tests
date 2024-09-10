@@ -13,7 +13,7 @@ function createLayer(width, prevLayers) {
         " ".repeat(prevLayers) +
         "#".repeat(prevLayers) +
         " " +
-        "#".repeat(prevLayers) +
+        "#".repeat(prevLayers)
         ;
     return layer;
 }
