@@ -43,3 +43,10 @@ function promptUser() {
 }
 
 promptUser()
+
+/* //METHOD 1
+while (true) {
+    let timeToSleep = prompt("How many seconds would you like me to sleep for? ");
+    await timeoutLoop(timeToSleep);
+}
+*/
