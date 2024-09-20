@@ -1,15 +1,21 @@
 class Database {
     constructor(fileName) {
         this.fileName = fileName;
-        this.db = {};
+        this.db = [{}];
     }
     
-    static async init() { // Begin the connection to the db
-        let db = {};
-        let file = Bun.file(this.fileName);
+    async init() { // Begin the connection to the db
+        let db = [{}];
+        const file = await Bun.file(this.fileName);
 
         if (await file.exists()) {
-            db = await file.json();
+            const text = await file.text()
+            const lines = text.split('\n');
+            console.log(text.length);
+            for (const line in lines) {
+                await db.push(line.json());
+                console.log(line);
+            }
         } else {
             console.log("Failed to connect!");
         }
@@ -23,12 +29,14 @@ class Database {
     }
 
     pushToDB() {
-        Bun.write(this.fileName, JSON.stringify(this.db));
+        console.log("THIS=>", this.db);
+        const dbString = db.join('');
+        Bun.write(this.fileName, JSON.stringify(dbString));
     }
 
     clearDB(db) {
         for (let key in db) {
-            delete db[key]
+            delete db[key];
         }
     }
 }
