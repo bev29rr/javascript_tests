@@ -19,7 +19,24 @@ class Ball extends Shape { // Extend is like impl trait
         // Variables from parent class are accessible from child class
         console.log(`Drawing ball with centre (${this.x}, ${this.y}) and radius ${this.r}`);
     }
+    static thing () { 
+        // Static keyword is used for static functions 
+        //(standalone functions which don't require initialisation)
+        console.log('hi');
+    }
 }
+
+class SmoothBall extends Ball {
+    s = 0;
+    constructor(x, y, r, s) {
+        super(x, y, r);
+        this.s = s;
+    }
+}
+
+let ball3 = new SmoothBall(5, 10, 0.1);
+
+Ball.thing();
   
 let shape = new Shape(5, 6);
 console.log(shape.x); // 5
