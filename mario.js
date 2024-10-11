@@ -4,7 +4,7 @@ function generateTower(height) {
     console.log("k");
     for (let i=height; i >= 0; i--) {
         layers.unshift(createLayer(i, prevLayers));
-        prevLayers += 1
+        prevLayers += 1;
     }
     return layers
 }

@@ -25,7 +25,7 @@ function askForName(size) {
 function getCharStats(teamNames) {
     let chars = teamNames.join('').length;
     let charsAvg = teamNames.join('').length / teamNames.length;
-    return [chars, charsAvg.toFixed(2)];
+    return [chars, charsAvg.toFixed(1)];
 }
 
 let size = Bun.argv[2];
